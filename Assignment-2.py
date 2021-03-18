@@ -12,7 +12,7 @@ import array as arr
 
 """The given probability can be seen as a bernoulis distribution with chance of 
 winning (p)=2/3 and chance of loosing (1-p)=1/3 P(i) denotes the payer winning
- for the first time after i tries """
+ for the first time after i tries , 0- for loss,1- for win"""
 
 #sim_len is no of experiments conducted to find p(i)
 sim_len=500
