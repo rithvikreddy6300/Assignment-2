@@ -7,17 +7,53 @@ Original file is located at
     https://colab.research.google.com/drive/1qANgP5AvRQCH_Q-CGImtybDBJh3yehui
 """
 
-# x values varies from 1 to 10000
+from scipy.stats import bernoulli
+import array as arr
 
-sim_len=10000
+"""The given probability can be seen as a bernoulis distribution with chance of 
+winning (p)=2/3 and chance of loosing (1-p)=1/3 P(i) denotes the payer winning
+ for the first time after i tries """
+
+#sim_len is no of experiments conducted to find p(i)
+sim_len=500
+# max val of i
+N=1000
+Exp_val=0
+# declaring an array of size N initialized to 0 to carry p(i) for i=0 to N tries
+b=arr.array('I',[0])
 i=1
-Exp_Val=0
+while (i<N):
+  b.append(0)
+  i=i+1
 
-#simulation for first 10000 values of x
+print("This may take some time for more accurate result :")
 
-for i in range(sim_len):
-  #Exp_Val=summation of probability*i
-  Exp_Val+=((2/3)*(1/3)**(i-1))*i
-  i+=1
-print("The Expectation vamue by simulation is :",Exp_Val)
-print("The expectation value by theory is :",3/2)
+#Finding p(i) for each i
+i_val=1
+while (i_val<N):
+  j=0
+  while (j<sim_len):# finding p(i=n n=1,2,3,....)
+    a = bernoulli.rvs(size = i_val, p=2/3)
+    j+=1
+    #print (a)
+    k=0
+    # to find if it is a valid result for p(i=n) or not 
+    while (k<i_val):
+     if (a[i_val-1]==0):
+       break
+     elif (a[k]==1 and k!=i_val-1):
+       break
+     elif (k==i_val-1):
+       b[i_val-1]+=1
+      
+     k+=1
+  i_val+=1
+
+# to find the expectation value
+c=0
+while (c<N):
+  Exp_val+=b[c]*(c+1)/sim_len
+  c+=1
+
+print("The simulated value is :",Exp_val)
+print("The value obtained by calculation is : 3/2")
