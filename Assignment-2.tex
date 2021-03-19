@@ -64,7 +64,11 @@ Then E(X) is ?
 \textbf{SOLUTION}
 \vspace{0.5cm}
 
-Given that $P(X=x)=\dfrac{2}{3}\left(\dfrac{1}{3}\right)^{x-1} , x=1,2,3,...$
+Let X=\{0,1\} be a set of random variables of a Bernoulli's distribution with 0 representing a loss and 1 a win, probability of loosing =$\dfrac{1}{3}$ and probability of winning is $\dfrac{2}{3}$.
+
+The given probability distribution P(x=i) can be seen as the probability of winning a game at $i^{th}$ try for the first time. Because to win at  $i^{th}$ try for the first time you have to loose for first i-1 times whose probability is $\left(\dfrac{1}{3}\right)^{i-1}$ and win at $i^{th}$ try whose probability is 2/3
+
+Given that $P(x=i)=\dfrac{2}{3}\left(\dfrac{1}{3}\right)^{x-1} , x=1,2,3,...$
 The expectation value of X represented by E(X) is given by
 $$E(X)=\sum_{i=1}^{\infty} Pr(x=i)\times i$$
 
