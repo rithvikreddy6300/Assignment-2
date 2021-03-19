@@ -12,7 +12,11 @@ import array as arr
 
 """The given probability can be seen as a bernoulis distribution with chance of 
 winning (p)=2/3 and chance of loosing (1-p)=1/3 P(i) denotes the payer winning
- for the first time after i tries , 0- for loss,1- for win"""
+ for the first time after i tries, To win for the first time at i th try he has 
+ to loose at all i-1 tries befor whose probability is (1/3)**(i-1) and should
+ win at i th try whose probability is 2/3 thus giving p(i)=2/3*(1/3)**(i-1) 
+ which matches with the probability distribution given in the question ,
+ Thus the given question can be seen as a bernoulis trail, 0-- for loss,1-- for win"""
 
 #sim_len is no of experiments conducted to find p(i)
 sim_len=500
