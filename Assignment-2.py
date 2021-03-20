@@ -9,6 +9,8 @@ Original file is located at
 
 from scipy.stats import bernoulli
 import array as arr
+import matplotlib.pyplot as plt
+import numpy as np
 
 """The given probability can be seen as a bernoulis distribution with chance of 
 winning (p)=2/3 and chance of loosing (1-p)=1/3 P(i) denotes the payer winning
@@ -61,3 +63,14 @@ while (c<N):
 
 print("The simulated value is :",Exp_val)
 print("The value obtained by calculation is : 3/2")
+# Values obtained by simulation
+y1 = [b[0]/sim_len, b[1]/sim_len, b[2]/sim_len, b[3]/sim_len, b[4]/sim_len, b[5]/sim_len]
+# values by calculation
+y2=[2/3*(1/3)**0, 2/3*(1/3)**1, 2/3*(1/3)**2, 2/3*(1/3)**3, 2/3*(1/3)**4, 2/3*(1/3)**5, ]
+
+X =np.arange(start=1, stop=7, step=1)
+plt.bar(X - 0.15, y1, label="Prob By Simulation", color = 'b', width = 0.30)
+plt.bar(X + 0.15, y2, label="Prob by Calculation", color = 'r', width = 0.30)
+plt.title("Probability by simulation and calculated for first 6 values")
+plt.legend()
+plt.show()
