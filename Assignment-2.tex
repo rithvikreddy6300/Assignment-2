@@ -95,8 +95,19 @@ In (\ref{eq_3})	$\sum_{i=1}^{\infty} \dfrac{2}{3}\left(\dfrac{1}{3}\right)^{i} \
 From (\ref{eq_10}) we can say that the expectation value of X given by E(X)=S=$\dfrac{3}{2}$		
 \textbf{(Option D).}
 
+\vspace{3cm}
+
+In order to simulate the above question in python I used bernouli.rvs function to generate an array of size i with a probability of an element being 1 is 2/3, I did the same for say 1000 times and each time I checked for an array whose first (i-1) terms are 0 and $i^{th}$ term is 1 as only this array will contribute towards P(i) dividing the number of such arrays with  1000 gives me P(i). I repeated the process for i=0 to 1000. Then found the P(i) for i=0 to 1000 and stored them in an array b to latter use them to calculate the Expectation value.
+
+The theoretical vs simulated probabilities are as follows,\\
+
+\begin{center}
+\includegraphics[scale=0.5]{img-1}
+\end{center}
+
+
+
 
 \end{multicols*}
-
 
 \end{document}
